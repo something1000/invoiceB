@@ -1,0 +1,53 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title tiles:fragment="title">Dokumenty !</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../webjars/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/invoice.css"/>
+
+</head>
+<body>
+<div class="container">
+    <div class="row pb-1">
+        <div class="col-12 bg-danger text-center"><h1 class="client-info">#</h1><h5 class="client-address">xdd</h5></div>
+    </div>
+    <div class="row py-2 text-center" >
+        <div class="col-12 bg-dark invoice-list">
+            <div class="row">
+                <span class="col-3 border bg-danger"><strong>Nazwa</strong></span>
+                <span class="col-1 border bg-danger"><strong>Kod</strong></span>
+                <span class="col-1 border bg-danger"><strong>Ilosc</strong></span>
+                <span class="col-3 border bg-danger"><strong>Przeznaczenie</strong></span>
+                <span class="col-2 border bg-danger"><strong>Data wystawienia</strong></span>
+                <span class="col-2 border bg-danger"><strong>Drukuj</strong></span>
+            </div>
+            <form onsubmit="printInvoice(this); return false" class="singleinvoice my-0" style="height:40px;">
+                <input type="text" value="#" class="invoiceid" hidden="true"/>
+            <div class="row mt-1 bg-gradient"  style="height: auto">
+                <span class="col-3 border-bottom"><span class="vcenter invoice-name">Bartłomiej</span></span>
+                <span class="col-1 border-bottom"><span class="vcenter invoice-code">Gawrych</span></span>
+                <span class="col-1 border-bottom"><span class="vcenter invoice-count">Gawrych</span></span>
+                <span class="col-3 border-bottom" style="overflow:hidden"><span class="vcenter invoice-dest">Gawrych</span></span>
+                <span class="col-2 border-bottom"><span class="vcenter invoice-date">Gawrych</span></span>
+                <span class="col-2 border-bottom">
+                    <span class="vcenter invoice-operations">
+                        <!--<button class="mx-3 glyphicon glyphicon-print text-danger" type="submit" value="#"></button> -->
+                        <input type="image" class="mx-3" src="/icon/print.png" value="#"/></input>
+                        <a href="#" class="mx-3 text-danger edit-invoice"><img src="/icon/modify.png"/></a>
+                        <a href="#" class="mx-3 text-danger delete-invoice" onclick="deleteDocument(this)"><img src="/icon/delete.png"/></a>
+                    </span>
+                </span>
+            </div>
+            </form>
+
+
+        </div>
+    </div>
+</div>
+<script src="../webjars/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="../webjars/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/faktury.js"></script>
+</body>
+</html>

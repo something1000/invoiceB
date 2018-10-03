@@ -1,0 +1,125 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title tiles:fragment="title">Transport !</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/invoice.css"/>
+
+
+</head>
+<body>
+<div class="container">
+    <div class="row pb-1">
+        <div class="col-12 bg-danger text-center"><h1>Transport</h1></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5  col-sm-12 bg-dark text-white">
+
+            <div class="row my-0 mx-auto">
+                <div class="col">
+                    <div class="row py-1">
+                        <div class="col-md-4 col-sm-12 py-1 text-right">Imie, nazwisko</div>
+                        <div class="col-md-8 col-sm-12"><input class="form-control szukajka" onkeyup="search(this.value)" value="" type="text"/></div>
+                    </div>
+                    <div class="row py-1">
+                        <div class="col-12 py-1"><button class="col-12 btn btn-danger">Szukaj</button></div>
+                    </div>
+                    <div class="row pt-5" >
+                        <div class="col-6 py-1"><button class="col-12 btn btn-primary" onclick="createRaport()">Generuj raport za...</button></div>
+                        <div class="col-6 py-1">
+                            <input class="datepicker" type="month" value=""/>
+                        </div>
+                        <div class="col-11 mx-4 pt-5"><a class="col-12 btn btn-link" href="/dodaj_towar">Dodaj typ towaru</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-7 col-sm-12 bg-secondary text-white">
+
+            <div class="row my-0 mx-auto">
+
+                <div class="col">
+                   <div id="add-form">
+                    <div class="row py-1">
+                        <div class="col-4 py-1 text-right" >Imie</div>
+                        <div class="col-8"><input class="form-control" name="name" type="text"/></div>
+                    </div>
+                    <div class="row py-1">
+                        <div class="col-4 py-1 text-right" >Nazwisko</div>
+                        <div class="col-8"><input class="form-control" name="surname" type="text"/></div>
+                    </div>
+                    <div class="row py-1">
+                        <div class="col-4 py-1 text-right" >Miejscowość</div>
+                        <div class="col-8"><input class="form-control" name="city" type="text"/></div>
+                    </div>
+                    <div class="row py-1">
+                        <div class="col-4 py-1 text-right" >Ulica</div>
+                        <div class="col-8"><input class="form-control" name="street" type="text"/></div>
+                    </div>
+
+                    <div class="row py-1">
+                        <div class="col-4 py-1 text-right" >Poczta</div>
+                        <div class="col-8"><input class="form-control" name="postCode" type="text"/></div>
+                    </div>
+
+                    <div class="row py-1">
+                        <div class="col-12 py-1"><button type="submit" onclick="addCustomer()" class="col-12 btn btn-success">Dodaj</button></div>
+                    </div>
+                   </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row py-2 text-center" >
+        <div class="col-12 bg-dark customer-list">
+            <div class="row">
+                <span class="col-1 border bg-danger"><strong>Imie</strong></span>
+                <span class="col-1 border bg-danger"><strong>Nazwisko</strong></span>
+                <span class="col-3 border bg-danger"><strong>Adres</strong></span>
+                <span class="col-3 border bg-danger"><strong>Typ faktury</strong></span>
+                <span class="col-1 border bg-danger"><strong>MOPS:</strong></span>
+                <span class="col-1 border bg-danger"><strong>Ilosc</strong></span>
+                <span class="col-2 border bg-danger"><strong>Pobierz/Drukuj</strong></span>
+            </div>
+            <form onsubmit="invoice(this); return false" class="customer my-0" style="height:40px;">
+                <input type="text" value="#" class="clientid" hidden="true"/>
+            <div class="row mt-1 bg-gradient"  style="height: 40px">
+                <span class="col-1 border-bottom"><span class="vcenter customer-name">Bartłomiej</span></span>
+                <span class="col-1 border-bottom"><span class="vcenter customer-surname">G</span></span>
+                <span class="col-3 border-bottom"><span class="vcenter customer-address">G</span></span>
+                <span class="col-3 border-bottom">
+                    <select class="custom-select customer-invoices">
+                        <option value="" disabled selected>Wybierz...</option>
+                    </select></span>
+                <span class="col-1 border-bottom"><input type="checkbox" style="margin: 0 auto;" class="vcenter customer-invoice-type"/></span>
+
+                <span class="col-1 border-bottom"><input type="number" style="width:100%" class="vcenter customer-invoice-count"/></span>
+                <span class="col-2 border-bottom">
+
+                    <span class="vcenter customer-operations">
+                       <!-- <button class="mx-3 glyphicon glyphicon-print text-danger" type="submit" value="#"></button>
+                        <a href="#" class="mx-3 glyphicon glyphicon-eye-open text-danger show-invoice"></a>
+                        <a href="#" class="mx-3 glyphicon glyphicon-edit text-danger edit-customer"></a> -->
+                        <input type="image" src="/icon/print.png" value="#"/></input>
+                        <a href="#" class="mx-3 text-danger show-invoice"><img src="/icon/eye.png"/></a>
+                        <a href="#" class="mx-3 text-danger edit-customer"><img src="/icon/modify.png"/></a>
+                    </span>
+                </span>
+            </div>
+            </form>
+
+
+        </div>
+    </div>
+</div>
+<script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/invoice.js"></script>
+</body>
+</html>

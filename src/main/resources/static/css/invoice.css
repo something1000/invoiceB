@@ -1,0 +1,35 @@
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
+
+.bg-gradient{
+    background: linear-gradient(#c4c6e3, #bad6ff);
+}
+.bg-gradient:hover{
+    background: linear-gradient(#bad6ff, #124057);
+}
+.vcenter{
+    height:100%;
+    display:-webkit-box!important;
+    display:-ms-flexbox!important;
+    display:flex!important;
+    -webkit-box-pack:center!important;
+    -ms-flex-pack:center!important;
+    justify-content:center!important;
+    -webkit-box-align:center!important;
+    -ms-flex-align:center!important;
+    align-items:center!important;
+}
+
+.loader {
+    border: 9px solid #f3f3f3; /* Light grey */
+    border-top: 9px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

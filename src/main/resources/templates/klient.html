@@ -1,0 +1,56 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title tiles:fragment="title">Chunky !</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/invoice.css"/>
+
+</head>
+<body>
+<div class="container">
+    <div class="row pb-1">
+        <div class="col-12 bg-danger text-center"><h1>Fakturki</h1></div>
+    </div>
+
+    <div class="row my-1 mx-auto justify-content-center bg-secondary">
+
+        <div class="col-8">
+            <div id="edit-form">
+                <div class="row py-1">
+                    <input type="hidden" name="cid" value="#"/>
+                    <div class="col-4 py-1 text-right" >Imie</div>
+                    <div class="col-8"><input class="form-control" name="name" type="text"/></div>
+                </div>
+                <div class="row py-1">
+                    <div class="col-4 py-1 text-right" >Nazwisko</div>
+                    <div class="col-8"><input class="form-control" name="surname" type="text"/></div>
+                </div>
+                <div class="row py-1">
+                    <div class="col-4 py-1 text-right" >Miejscowość</div>
+                    <div class="col-8"><input class="form-control" name="city" type="text"/></div>
+                </div>
+                <div class="row py-1">
+                    <div class="col-4 py-1 text-right" >Ulica</div>
+                    <div class="col-8"><input class="form-control" name="street" type="text"/></div>
+                </div>
+                <div class="row py-1">
+                    <div class="col-4 py-1 text-right" >Poczta</div>
+                    <div class="col-8"><input class="form-control" name="postCode" type="text"/></div>
+                </div>
+
+                <div class="row py-1">
+                    <div class="col-12 py-1"><button type="submit" onclick="editCustomer()" class="col-12 btn btn-success">Zapisz</button></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="../webjars/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/klient.js"></script>
+</body>
+</html>
